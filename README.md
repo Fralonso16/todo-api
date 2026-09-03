@@ -1,5 +1,7 @@
 # To-Do API
 
+[![Tests](https://github.com/Fralonso16/todo-api/actions/workflows/tests.yml/badge.svg)](https://github.com/Fralonso16/todo-api/actions/workflows/tests.yml)
+
 API REST sencilla para gestionar tareas (crear, listar, actualizar y eliminar), construida como proyecto de práctica para aprender backend con Python.
 
 ## Tecnologías

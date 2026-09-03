@@ -66,3 +66,27 @@ todo-api/
 | GET    | /tasks/{task_id}  | Obtiene una tarea por su id     |
 | PUT    | /tasks/{task_id}  | Actualiza una tarea existente   |
 | DELETE | /tasks/{task_id}  | Elimina una tarea               |
+
+## Cómo ejecutarlo con Docker
+
+No necesitas instalar Python ni nada manualmente, solo tener Docker instalado.
+
+1. Clona el repositorio y entra en la carpeta:
+
+git clone https://github.com/Fralonso16/todo-api.git
+cd todo-api
+
+
+2. Construye la imagen:
+
+docker build -t todo-api .
+
+
+3. Ejecuta el contenedor:
+
+docker run -p 8000:8000 todo-api
+
+
+4. Abre la documentación interactiva en:
+
+http://127.0.0.1:8000/docs

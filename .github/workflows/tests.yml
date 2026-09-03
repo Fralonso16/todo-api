@@ -1,0 +1,36 @@
+# Nombre del workflow, se ve en la pestaña "Actions" de GitHub
+name: Tests
+
+# Cuando se ejecuta este workflow: en cada push y en cada pull request
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Los "jobs" son las tareas que se ejecutan
+jobs:
+  test:
+    # El sistema operativo donde corre el job (GitHub nos lo presta gratis)
+    runs-on: ubuntu-latest
+
+    steps:
+      # Paso 1: descarga tu codigo dentro de esta maquina temporal
+      - name: Descargar el codigo
+        uses: actions/checkout@v4
+
+      # Paso 2: instala Python en esa maquina temporal
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Paso 3: instala las dependencias de tu proyecto
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+          pip install pytest httpx
+
+      # Paso 4: ejecuta los tests
+      - name: Ejecutar tests
+        run: pytest

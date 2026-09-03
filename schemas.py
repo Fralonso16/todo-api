@@ -26,5 +26,4 @@ class TaskOut(BaseModel):
     # Esta configuración le dice a Pydantic que puede leer los datos
     # directamente desde un objeto de SQLAlchemy (como los de models.py),
     # no solo desde un diccionario
-    class Config:
-        from_attributes = True
+    model_config = {"from_attributes": True}

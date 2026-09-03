@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.app {
+    width: 100%;
+    max-width: 480px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin: 0;
+    color: #ffffff;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.new-task-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.new-task-bar input {
+    flex: 1;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #1e1e1e;
+    color: #fff;
+    font-size: 15px;
+}
+
+.new-task-bar input::placeholder {
+    color: #666;
+}
+
+.new-task-bar button {
+    width: 44px;
+    border: none;
+    border-radius: 8px;
+    background: #14b8a6;
+    color: #121212;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.new-task-bar button:hover {
+    background: #0d9488;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.filter-btn {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    background: #1e1e1e;
+    color: #999;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background: #14b8a6;
+    color: #121212;
+    font-weight: bold;
+}
+
+#tasks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 8px;
+}
+
+.task-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #14b8a6;
+    cursor: pointer;
+}
+
+.task-title {
+    flex: 1;
+    font-size: 15px;
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+    color: #666;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-btn:hover {
+    color: #ef4444;
+}
+
+.empty-message {
+    text-align: center;
+    color: #666;
+    margin-top: 40px;
+}

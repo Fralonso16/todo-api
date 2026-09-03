@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do API - Frontend</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+        <header>
+            <h1>Mis tareas</h1>
+            <p class="subtitle" id="task-count">0 tareas</p>
+        </header>
+
+        <div class="new-task-bar">
+            <input type="text" id="new-task-title" placeholder="¿Qué hay que hacer?">
+            <button id="add-task-btn">+</button>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="pending">Pendientes</button>
+            <button class="filter-btn" data-filter="completed">Completadas</button>
+        </div>
+
+        <ul id="tasks-list"></ul>
+
+        <p id="empty-message" class="empty-message" style="display: none;">
+            No hay tareas aquí todavía
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

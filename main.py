@@ -17,6 +17,16 @@ Base.metadata.create_all(bind=engine)
 # Creamos la aplicación FastAPI, con un título que aparecerá en la documentación
 app = FastAPI(title="To-Do API")
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5500", "http://127.0.0.1:5500"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # Esta función abre una sesión de base de datos, la "presta" a la ruta que
 # la necesite, y se asegura de cerrarla después (pase lo que pase)

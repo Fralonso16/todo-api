@@ -47,28 +47,6 @@ uvicorn main:app --reload
 
 http://127.0.0.1:8000/docs
 
-
-## Estructura del proyecto
-
-todo-api/
-├── main.py # Rutas de la API (endpoints)
-├── models.py # Modelo de datos (tabla Task)
-├── schemas.py # Validación de datos de entrada/salida
-├── database.py # Configuración de la conexión a la BD
-├── requirements.txt # Dependencias del proyecto
-└── README.md
-
-
-## Endpoints
-
-| Método | Ruta              | Descripción                    |
-|--------|-------------------|---------------------------------|
-| POST   | /tasks            | Crea una tarea nueva            |
-| GET    | /tasks            | Lista todas las tareas          |
-| GET    | /tasks/{task_id}  | Obtiene una tarea por su id     |
-| PUT    | /tasks/{task_id}  | Actualiza una tarea existente   |
-| DELETE | /tasks/{task_id}  | Elimina una tarea               |
-
 ## Cómo ejecutarlo con Docker
 
 No necesitas instalar Python ni nada manualmente, solo tener Docker instalado.
@@ -92,3 +70,37 @@ docker run -p 8000:8000 todo-api
 4. Abre la documentación interactiva en:
 
 http://127.0.0.1:8000/docs
+
+
+## Frontend
+
+Este proyecto incluye un frontend (HTML/CSS/JavaScript, sin frameworks) en la carpeta `frontend/`, con tema oscuro, checkboxes para marcar tareas completadas, y filtros (Todas/Pendientes/Completadas).
+
+### Cómo ejecutarlo
+
+1. Arranca la API (ver arriba)
+2. Abre `frontend/index.html` con la extensión Live Server de VS Code (o cualquier servidor estático)
+3. Crea, marca y filtra tareas desde la interfaz
+
+
+## Estructura del proyecto
+
+todo-api/
+├── main.py # Rutas de la API (endpoints)
+├── models.py # Modelo de datos (tabla Task)
+├── schemas.py # Validación de datos de entrada/salida
+├── database.py # Configuración de la conexión a la BD
+├── requirements.txt # Dependencias del proyecto
+└── README.md
+
+
+## Endpoints
+
+| Método | Ruta              | Descripción                    |
+|--------|-------------------|---------------------------------|
+| POST   | /tasks            | Crea una tarea nueva            |
+| GET    | /tasks            | Lista todas las tareas          |
+| GET    | /tasks/{task_id}  | Obtiene una tarea por su id     |
+| PUT    | /tasks/{task_id}  | Actualiza una tarea existente   |
+| DELETE | /tasks/{task_id}  | Elimina una tarea               |
+

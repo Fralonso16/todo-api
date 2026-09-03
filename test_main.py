@@ -1,7 +1,44 @@
 # TestClient simula peticiones HTTP a tu API sin necesidad de arrancar
 # un servidor real - hace las pruebas mucho mas rapidas
+import pytest
 from fastapi.testclient import TestClient
-from main import app
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import StaticPool
+
+from main import app, get_db
+from database import Base
+
+# Base de datos de PRUEBA, en memoria - totalmente separada de tasks.db
+SQLALCHEMY_TEST_DATABASE_URL = "sqlite:///:memory:"
+
+engine = create_engine(
+    SQLALCHEMY_TEST_DATABASE_URL,
+    connect_args={"check_same_thread": False},
+    poolclass=StaticPool,
+)
+TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+
+def override_get_db():
+    """Version de get_db que usa la BD de test en vez de la real."""
+    db = TestingSessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+app.dependency_overrides[get_db] = override_get_db
+
+
+@pytest.fixture(autouse=True)
+def reset_database():
+    """Crea tablas vacias antes de cada test y las borra despues."""
+    Base.metadata.create_all(bind=engine)
+    yield
+    Base.metadata.drop_all(bind=engine)
+
 
 # Creamos un "cliente" que apunta directamente a tu aplicacion FastAPI
 client = TestClient(app)

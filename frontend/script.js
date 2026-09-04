@@ -1,5 +1,5 @@
 // URL base de la API
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://todo-api-0pfq.onrender.com";
 
 // Referencias a elementos del HTML
 const tasksList = document.getElementById("tasks-list");

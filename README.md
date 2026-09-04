@@ -4,6 +4,13 @@
 
 API REST sencilla para gestionar tareas (crear, listar, actualizar y eliminar), construida como proyecto de práctica para aprender backend con Python.
 
+## 🔗 Demo en vivo
+
+- **Frontend**: https://todo-api-frontend-7hu4.onrender.com
+- **API (Swagger)**: https://todo-api-0pfq.onrender.com/docs
+
+> Nota: al usar el plan gratuito de Render, el servicio puede "dormir" tras un rato de inactividad. La primera petición puede tardar unos segundos en responder mientras se reactiva.
+
 ## Tecnologías
 
 - **Python 3**
